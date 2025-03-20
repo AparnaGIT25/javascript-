@@ -17,3 +17,10 @@ console.log(booleanIsLoggedIn)
 ""=>false
 "aparna"=>true
 */
+/*********************operations*************************
+ string to number conversion is a bit confusing lets see why?
+ */
+console.log("1"+2)
+console.log(1+"2")
+console.log("1"+2+2)//o/p=>122 ,when string is first then all are treated as string
+console.log(1+2+"3")//o/p=>, if arithmatic operation is first then it is solved and then converted into string
