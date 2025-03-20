@@ -19,4 +19,29 @@
        Arrays  =>  object
        Function  =>  function
        Object  =>  object
+
+ stack memory:
+              used for primitive data types
+ 
+ heap memory:
+              used for non primitive type(reference)
        */
+let myName= "Aparna"
+let AnotherName=myName //pass by value so changes are done in the copy not in the original object
+AnotherName="hey_aparna_here"
+
+console.log(myName)
+console.log(AnotherName)
+
+let userOne ={
+    email:"user@google.com",
+    upi:"23@ybl"
+}
+let userTwo= userOne
+userTwo.email="aparna@gfmail.com" // pass by reference =>the changes are done within the object not in the copy
+console.log(userOne.email)
+console.log(userTwo.email)
+
+
+
+
