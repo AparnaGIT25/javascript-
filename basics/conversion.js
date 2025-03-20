@@ -38,4 +38,5 @@ console.log(null>=0)//=>o/p=>true
 the reason is that in an equality check == and comparisons < > = work differently
 comparisons convert null to a number ,treating it as 0
 */
+// === check the datatype also!
 
