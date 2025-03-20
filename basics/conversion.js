@@ -37,6 +37,7 @@ console.log(null>=0)//=>o/p=>true
 /* reason?
 the reason is that in an equality check == and comparisons < > = work differently
 comparisons convert null to a number ,treating it as 0
+avoid such type of conversions
 */
 // === check the datatype also!
 
