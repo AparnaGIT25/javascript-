@@ -26,3 +26,32 @@ function returnSecondArray(getArray){
     return getArray[1];
 }
 console.log(returnSecondArray(myArray))
+//SCOPE
+/*
+1. Global Scope:
+Variables declared outside any function/block.
+Accessible anywhere in the code.
+
+2. Function Scope (Local Scope):
+Variables declared inside a function.
+Only accessible inside that function.
+
+3. Block Scope (ES6 - let & const):
+Variables declared with let or const inside {} (block) are only accessible inside that block.
+*/
+//NESTED SCOPE
+//Inner scopes can access variables from outer scopes, but outer scopes cannot access variables from inner scopes.
+
+
+function one(){
+    const username="Aparna"
+
+    function two(){
+        const website="aparna@yahoo.com"
+        console.log(username)//can access outside variable username
+    }
+    //console.log(website)=>not accessible here
+
+    two()
+}
+one()
