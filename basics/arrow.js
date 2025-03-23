@@ -31,4 +31,17 @@ console.log(add(2, 3)); // Output: 5
 
 const returnObj=()=>({name:"aparna"})//returning object
 
-  
+//diff between normal and arrow function=>read from chat gpt
+
+//***********IIFE************** 
+//iife=>Immediately Invoked Function Expression
+//It’s a function that runs immediately after it is defined!
+//its is used to avoid the global scope variables
+(function creation(){
+    console.log("execution done")
+})();
+//first()=>bind up for the iife
+//second()=>to call the function immediately
+((name)=>{//using the arrow way 
+    console.log(`hey ${name}`)
+})("aparna");//remember the semicolon is very important here otherwise it will throw an error
