@@ -30,9 +30,48 @@ step2=> Memory Phase(just stores the variables)
 step3=>Execution phase=>
     Val1=>20
     Val2=>5
-    addNum=>this is very imp as =>Every time a function is called, 
+    addNum(for result1)=>this is very imp as =>Every time a function is called, 
     JavaScript creates a new Function Execution Context (FEC) inside the call stack. 
-    
+    now in this FEC again memory phase and execution phase
+    therefore for addNum=>
+        memory phase->val1,val2,total=>undefined
+        execution context->num1->20
+                           num2->5
+                           total->25
+                           now this total will return Global execution context
+                           Now this FEC will be deleted(imp)
 
 
+lets see for result2
+again a new FEC is created and executed in the same way as above and after execution it gets deleted.
 
+//CALL STACK
+
+JavaScript uses a Call Stack (LIFO) to manage function calls.
+
+When a function is called, it’s pushed onto the stack.
+
+When it finishes execution, it’s popped off the stack.
+*/
+
+function foo() {
+    console.log("Inside foo");
+}
+
+function bar() {
+    foo();
+}
+
+bar();
+/*
+Call Stack Flow
+bar() is called → added to the stack.
+
+bar() calls foo() → added to the stack.
+
+foo() executes and is removed.
+
+bar() finishes and is removed.
+its always in LIFO manner
+
+*/
