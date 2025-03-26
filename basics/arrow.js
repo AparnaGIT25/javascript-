@@ -21,8 +21,8 @@ function show() {
 
 //ARROW FUNCTION
 //simpler way to write functions
-const addTwo=(num1,num2)=>{//normal syntax
-    return num1+num2;
+const addTwo=(num1,num2)=>{//normal syntax(explicit return)
+    return num1+num2;//always use return when you are inside the function as it uses explicit return
 }
 console.log(addTwo(3,4));
 //using the implicit return syntax 
