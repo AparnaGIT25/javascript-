@@ -1,0 +1,29 @@
+//Creating a new node
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head style="background-color" :black;color:white>
+
+
+</body>
+<script>
+    const div = document.createElement('div')
+    console.log(div)
+    div.className = "main"
+    div.id = "mainn"
+    div.setAttribute("generated Title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    //div.innerText="this is my Page"
+    const addText = document.createTextNode("This is my page")
+    div.appendChild(addText);//writing the text and then appending it to the childnode we creatrd
+
+    document.body.appendChild(div)//adding this div to the web page
+
+</script>
+
+</html>
