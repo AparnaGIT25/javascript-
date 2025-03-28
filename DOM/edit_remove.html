@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color:white;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+    
+</body>
+<script>
+    function addName(language){
+        const ele= document.createElement("li")//Creating the li we want to insert
+        ele.innerHTML=`${language}`//adding the name of the language to the inner HTML
+        const addele=document.querySelector('.language')//
+        addele.append(ele);
+    }
+    addName("cpp")//python is added at the last of the DOM tree
+    //This is the most basic way to add  the created element into the DOM tree but this way has some issues as
+    //if we have a very a large number of language li's then it is very crucial task to traverse the DOM tree and 
+    //and add each and every element so we need a optimized way to do the same
+
+    //OPTIMIZED WAY
+    function addOptiLanguage(langName){
+        const li=document.createElement('li')
+        li.appendChild(document.createTextNode(langName))//Creates a text node containing the value of langName (e.g., "golang").
+        //Appends this text node inside the newly created <li>, so now the <li> has text.
+        document.querySelector('.language').appendChild(li);
+    }
+    addOptiLanguage("golang");
+
+    //Edit element in DOM
+    const secondLang=document.querySelector("li:nth-child(2)");
+    const newLi= document.createElement('li')
+    newLi.textContent="Mojo"
+    secondLang.replaceWith(newLi)
+
+    const firstLang=document.querySelector("li:nth-child(1)");
+    const newEle= document.createElement('li')
+    newEle.textContent="typescript"
+    firstLang.replaceWith(newEle)
+
+    //remove element in DOM
+    const lastLang= document.querySelector('li:last-child')
+    lastLang.remove()//this will remove the lastLang created
+
+
+</script>
+</html>
