@@ -49,3 +49,92 @@ form.addEventListener('submit', function (eve) {
     results.innerHTML = `<span>${BMI}</span>`;
   }
 });
+```
+project3 solution
+```javascript
+let randomNum = parseInt(Math.random() * 100 + 1);
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHigh = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+let prevGuess = [];
+let numGuesses = 1;
+let playGame = true;
+
+if (playGame) {
+  submit.addEventListener('click', function (eve) {
+    eve.preventDefault();
+    const guess = parseInt(userInput.value);
+    validateGuess(guess);
+  });
+}
+
+function validateGuess(guess) {
+  if (isNaN(guess) || guess < 1 || guess > 100) {
+    alert('Please enter a valid number between 1 and 100.');
+  } else {
+    prevGuess.push(guess);
+    displayGuess(guess);
+
+    if (numGuesses === 11) {
+      displayMessage(`Game over! The correct number was ${randomNum}`);
+      endGame();
+    } else {
+      checkGuess(guess);
+    }
+  }
+}
+
+function checkGuess(guess) {
+  if (guess === randomNum) {
+    displayMessage('You guessed it right!');
+    endGame();
+  } else if (guess < randomNum) {
+    displayMessage('Number is too low');
+  } else {
+    displayMessage('Number is too high');
+  }
+}
+
+function displayGuess(guess) {
+  userInput.value = '';
+  guessSlot.innerHTML += `${guess}, `;
+  numGuesses++;
+  remaining.innerHTML = `${11 - numGuesses}`;
+}
+
+function displayMessage(message) {
+  lowOrHigh.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endGame() {
+  userInput.value = '';
+  userInput.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = `<h2 id="newGame">Start New Game</h2>`;
+  startOver.appendChild(p);
+  playGame = false;
+}
+
+// Use event delegation to restart the game
+startOver.addEventListener('click', function (eve) {
+  if (eve.target.id === 'newGame') {
+    resetGame();
+  }
+});
+
+function resetGame() {
+  randomNum = parseInt(Math.random() * 100 + 1);
+  prevGuess = [];
+  numGuesses = 1;
+  guessSlot.innerHTML = '';
+  remaining.innerHTML = `${11 - numGuesses}`;
+  userInput.removeAttribute('disabled');
+  p.remove();
+  playGame = true;
+}
+
