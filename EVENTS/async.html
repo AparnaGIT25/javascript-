@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //Executes a function once after a specified delay (in milliseconds).
+    //Returns a unique ID, which can be used with clearTimeout().
+    const sayAparna = function () {
+        console.log("Aparna")
+    }
+    const changeText = function () {
+        document.querySelector('h1').innerHTML = "hey this is Parna"
+    }
+    const changeMe = setTimeout(changeText, 2000)//delay of 2s
+
+    //clear timeout is used to stop a particular setTimeout when you give the particular reference
+    //below code stops the settimeout when you click the button
+    document.querySelector('#stop').addEventListener('click', function (eve) {
+        clearTimeout(changeMe);
+    })
+
+</script>
+
+</html>
