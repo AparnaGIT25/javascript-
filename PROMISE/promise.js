@@ -110,3 +110,26 @@ It makes asynchronous code look like synchronous code.
 
 
 */
+async function getAllUsers() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')//values come in string so we cannot take out value out of it
+        const data = await response.json();// we used await here because converting the values takes time
+        console.log(data);
+    }
+    catch {
+        console.log("E:", error);
+    }
+}
+getAllUsers();
+//writing the above code in then format
+fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.log('found an error!!!')
+    })
+
