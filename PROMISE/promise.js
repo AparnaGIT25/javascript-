@@ -49,7 +49,7 @@ const promiseFour = new Promise(function (resolve, reject) {
         }
     }, 1000)
 })
-//if we wnat to print on only username we can use then chaining
+//if we want to print on only username we can use then chaining
 //here each then resolves the value from the previous one
 promiseFour
     .then((user) => {
