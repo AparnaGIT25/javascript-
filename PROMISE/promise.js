@@ -1,4 +1,11 @@
 //creation of promises
+/*
+In JavaScript, asynchronous code allows tasks to run in the background without blocking the execution of other code. This is essential for handling operations like:
+✔ Fetching data from APIs
+✔ Reading/writing files (Node.js)
+✔ User interactions (clicks, scrolling)
+✔ Timers (setTimeout, setInterval)
+*/
 const promiseOne = new Promise(function (resolve, reject) {
     //do an async task
     //DB calls, cryptoGraphy, network
