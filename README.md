@@ -1,3 +1,6 @@
+PROJECTS(BASIC)
+LINK 
+
 ##project 1
 ```javascript
 console.log("aparna")
@@ -137,4 +140,35 @@ function resetGame() {
   p.remove();
   playGame = true;
 }
+```
+Project4=>unlimited colors
+```javascript
+//generating arandom color
+let randomColor = function () {
+  let hex = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+let IntervalId;
+
+const startChangingColor = function () {
+  if (IntervalId == null) {
+    IntervalId = setInterval(changeBgColor, 1000);
+  }
+
+  function changeBgColor() {
+    document.body.style.backgroundColor = randomColor();
+  }
+};
+const stopChangingColor = function () {
+  clearInterval(IntervalId);
+  IntervalId = null; //// Reset IntervalId to allow restarting
+};
+
+document.querySelector('#start').addEventListener('click', startChangingColor);
+document.querySelector('#stop').addEventListener('click', stopChangingColor);
+
 
